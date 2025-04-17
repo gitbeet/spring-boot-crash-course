@@ -17,7 +17,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import gitbeet.content_calendar.model.Content;
 import gitbeet.content_calendar.model.Status;
-import gitbeet.content_calendar.repository.ContentCollectionRepository;
 import gitbeet.content_calendar.repository.ContentRepository;
 import jakarta.validation.Valid;
 

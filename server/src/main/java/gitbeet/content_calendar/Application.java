@@ -5,13 +5,17 @@ import java.time.LocalDateTime;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
+import gitbeet.content_calendar.config.ContentCalendarProperties;
 import gitbeet.content_calendar.model.Content;
 import gitbeet.content_calendar.model.Status;
 import gitbeet.content_calendar.model.Type;
 import gitbeet.content_calendar.repository.ContentRepository;
 
+
+@EnableConfigurationProperties(ContentCalendarProperties.class)
 @SpringBootApplication
 public class Application {
 
