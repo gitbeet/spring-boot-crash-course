@@ -38,14 +38,14 @@ function App() {
 
   function createContent() {
     const newContent = {
-      id: content.length + 1,
+      id: null,
       title,
-      description: "My second blog post",
+      description: "Created in client",
       status: "IDEA",
-      type: "ARTICLE",
-      dateCreated: "2025-02-05T10:25:02.838496",
+      contentType: "ARTICLE",
+      dateCreated: new Date(),
       dateUpdated: null,
-      url: "",
+      url: null,
     };
     return fetch(BASE_URL, {
       method: "POST",

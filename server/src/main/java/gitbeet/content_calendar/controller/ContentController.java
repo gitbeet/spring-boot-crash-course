@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import gitbeet.content_calendar.model.Content;
+import gitbeet.content_calendar.model.Status;
 import gitbeet.content_calendar.repository.ContentCollectionRepository;
+import gitbeet.content_calendar.repository.ContentRepository;
 import jakarta.validation.Valid;
 
 
@@ -25,9 +27,9 @@ import jakarta.validation.Valid;
 @CrossOrigin // for CORS
 public class ContentController {
     
-    private final ContentCollectionRepository repository;
+    private final ContentRepository repository;
     
-    public ContentController(ContentCollectionRepository repository){
+    public ContentController(ContentRepository repository){
         this.repository = repository;
     }
 
@@ -63,6 +65,17 @@ public class ContentController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         repository.deleteById(id);
+    }
+
+    @GetMapping("/filter/{keyword}")
+    public List<Content> findByTitle (@PathVariable String keyword) {
+        return repository.findAllByTitleContains(keyword);
+    }
+
+    
+    @GetMapping("/filter/status/{status}")
+    public List<Content> findByStatus (@PathVariable Status status) {
+        return repository.listByStatus(status);
     }
 
 
